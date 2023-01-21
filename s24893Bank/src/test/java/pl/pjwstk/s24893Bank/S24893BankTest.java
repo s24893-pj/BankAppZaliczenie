@@ -11,11 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 public class S24893BankTest {
-
-
-
 
 
     @Mock
@@ -24,10 +22,9 @@ public class S24893BankTest {
     BankService bankService;
 
 
-
     @DisplayName("minusowe saldo - rejestracja")
     @Test
-    void bankTest1(){
+    void bankTest1() {
         //given
         double saldo = -2444.00;
         //when
@@ -38,7 +35,7 @@ public class S24893BankTest {
 
     @DisplayName("klient nie istnieje przy zleceniu przelewu")
     @Test
-    void bankTest2(){
+    void bankTest2() {
         when(clientStorage.findByID(anyInt())).thenReturn(null);
         //given
         int clientId = 1;
@@ -52,7 +49,7 @@ public class S24893BankTest {
 
     @DisplayName("klient ma wystarczającą ilość środków - przelew")
     @Test
-    void bankTest3(){
+    void bankTest3() {
         when(clientStorage.findByID(anyInt())).thenReturn(new Client(2000.00));
         //given
         int clientId = 1;
@@ -65,7 +62,7 @@ public class S24893BankTest {
 
     @DisplayName("klient ma za mało pieniędzy - przelew")
     @Test
-    void bankTest4(){
+    void bankTest4() {
         when(clientStorage.findByID(anyInt())).thenReturn(new Client(1000.00));
         //given
         int clientId = 1;
@@ -79,7 +76,7 @@ public class S24893BankTest {
 
     @DisplayName("klient nie istnieje przy dodawaniu pieniędzy")
     @Test
-    void bankTest5(){
+    void bankTest5() {
         when(clientStorage.findByID(anyInt())).thenReturn(null);
         //given
         int clientId = 1;
@@ -92,10 +89,9 @@ public class S24893BankTest {
     }
 
 
-
     @DisplayName("klient nie istnieje przy wyświetlaniu informacji")
     @Test
-    void bankTest6(){
+    void bankTest6() {
         when(clientStorage.findByID(anyInt())).thenReturn(null);
         //given
         int clientId = 1;

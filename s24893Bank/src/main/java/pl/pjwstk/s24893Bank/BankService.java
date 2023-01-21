@@ -25,7 +25,7 @@ public class BankService {
             clientStorage.getClientList().add(client);
             System.out.println("zarejestrowano nowego klienta");
             return client;
-        }else {
+        } else {
             System.out.println("Nie można dodać minusowego salda");
             return null;
         }
@@ -41,7 +41,7 @@ public class BankService {
                 System.out.println(declined + "niewystarczająca ilosc srodkow");
             }
         } else {
-            System.out.println(declined +"Taki klient nie istnieje");
+            System.out.println(declined + "Taki klient nie istnieje");
         }
     }
 
@@ -51,11 +51,11 @@ public class BankService {
                 double change = clientStorage.findByID(id_client).getSaldo() + value;
                 clientStorage.findByID(id_client).setSaldo(change);
                 System.out.println(accepted);
-            }else {
-                System.out.println(declined +"nie można dodać ujemnej wartości");
+            } else {
+                System.out.println(declined + "nie można dodać ujemnej wartości");
             }
         } else {
-            System.out.println(declined +"Taki klient nie istnieje");
+            System.out.println(declined + "Taki klient nie istnieje");
         }
     }
 
